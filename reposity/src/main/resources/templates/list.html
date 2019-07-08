@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="../css/bootstrap.css" />
+    <!--引入JQ库(先引入jq)-->
+    <script src="../js/jquery-1.11.3.min.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="../js/bootstrap.js"></script>
+
+    <!--为了确保适当的绘制和触屏缩放(支持移动设备优先)-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style type="text/css">
+        td, th {
+            text-align: center;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <center>
+            <h2 style="text-align: center">显示所有联系人</h2>
+            <table border="1px" width="1px" class="table table-bordered table-hover" >
+                <tr class="success">
+                    <th>ID</th>
+                    <th>AREA</th>
+                    <th>IP</th>
+                    <th>DIR</th>
+                    <th>OPERATION</th>
+                </tr>
+
+                <tr th:each="user,usererStat:${userList}">
+                    <td th:text="${userStat.index}">状态变量：index</td>
+                    <td th:text="${user.id}"></td>
+                    <td th:text="${user.area}"></td>
+                    <td th:text="${user.ip}"></td>
+                    <!--<td th:text="${user.dir}"></td>-->
+                    <td>
+                        <button type="button" class="btn btn-default btn-sm" onclick="update(this)">修改</button>
+                        <button type="button" class="btn btn-default btn-sm">删除</button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="8" align="center">
+                        <a href="add.html">
+                            <button>增加裸仓</button>
+                        </a>
+                    </td>
+                </tr>
+
+            </table>
+
+        </center>
+
+    </div>
+
+    <script>
+        function update(){
+            this.userstr
+            id =this.id;
+            ip=this.ip;
+            dir=this.dir;
+            area=this.area;
+            alert(id);
+            console.log(id);
+            window.location.href="update.html?ip="+ip+"dir"+dir+"area"+area;
+
+        };
+    </script>
+
+</body>
+</html>
